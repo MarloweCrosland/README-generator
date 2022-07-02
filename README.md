@@ -1,5 +1,5 @@
 
-#marlowe
+#Sample Title
 
 ##Table of Contents
 - [Project description](#Description)
@@ -9,16 +9,16 @@
 - [Licenses](#Licenses)
 
 ##Description
-    marlowe
+    Sample Description Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         
 ##Usage
-    marlowe
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 ##What I learned
-    marlowe
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 ##Github
-    marlowe
+    samplelink.samplegithub.com
 
 ##Licenses
-    MIT
+    ISC
