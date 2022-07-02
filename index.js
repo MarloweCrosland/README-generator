@@ -25,8 +25,13 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'learned',
-        message: 'What did you learn?',
+        name: 'tests',
+        message: 'How to test this app?',
+    },
+    {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email?',
     },
     {
         type: 'input',
@@ -38,7 +43,7 @@ const questions = [
         name: 'license',
         message: 'License?',
         choices: ['MIT', 'ISC', 'GNUPLv3'],
-    }];
+    },];
 
 // run query func
 function runQuery() {
