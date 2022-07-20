@@ -1,11 +1,15 @@
-const fs = require('fs');
+// require modules 
+const fs = require('fs'); 
 const inquirer = require('inquirer');
-const MarkDown = require('./lib/ReadmeGen')
 
 
-// app questions
+const readmeGen = require("./lib/readmeGen");
 
-const questions = [
+
+// array of questions for user
+const questions = () => {
+    // using inquirer to prompt questions to user 
+    return inquirer.prompt([
     {
         type: 'input',
         name: 'title',
@@ -20,8 +24,32 @@ const questions = [
     },
     {
         type: 'input',
-        name: 'instructions',
+        name: 'installation',
+        message: 'How to install this app?'
+    },
+    {
+        type: 'input',
+        name: 'usage',
         message: 'Explain how to use this app.',
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: 'License?',
+        choices: [ 
+        "Apache",
+        "Academic",
+        "GNU",
+        "ISC",
+        "MIT",
+        "Mozilla",
+        "Open"
+        ],
+    },
+    {
+        type: 'input',
+        name: 'contributing',
+        message: 'who worked on this project?'
     },
     {
         type: 'input',
@@ -37,36 +65,34 @@ const questions = [
         type: 'input',
         name: 'git',
         message: 'Enter your  personal github repository link',
-    },
-    {
-        type: 'list',
-        name: 'license',
-        message: 'License?',
-        choices: ['MIT', 'ISC', 'GNUPLv3'],
-    },];
-
-// run query func
-function runQuery() {
-    return inquirer.prompt(questions)
-    .then((answers) => {
-        const template = MarkDown.generateReadme(answers)
-        fs.writeFile('README.md',template,function(err){
-            if(err){
-                console.log('Could not save file')
-            } else {
-                console.log('success, new README file generated inside current folder')
-            }
-        })
-        return answers
-    })
-    .catch((error)=>{
-        console.log(error)
-    })
+    }
+    ]);
 }
+// function to write README file using file system 
+const writeFile = data => {
+    fs.writeFile('README.md', data, err => {
+        // if there is an error 
+        if (err) {
+            console.log(err);
+            return;
+        // when the README has been created 
+        } else {
+            console.log("Your README has been successfully created!")
+        }
+    })
+}; 
 
 
-runQuery()
 
-
-
-
+questions()
+.then(answers => {
+    return readmeGen(answers);
+})
+// using data to display on page 
+.then(data => {
+    return writeFile(data);
+})
+// catching errors 
+.catch(err => {
+    console.log(err)
+})
